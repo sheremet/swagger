@@ -1,5 +1,1 @@
-export declare const exploreApiOperationMetadata: (
-  instance: any,
-  prototype: any,
-  method: any
-) => any;
+export declare const exploreApiOperationMetadata: (instance: any, prototype: any, method: any) => any;

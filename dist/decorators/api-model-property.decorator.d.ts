@@ -1,15 +1,14 @@
-export declare const ApiModelProperty: (
-  metadata?: {
+export declare const ApiModelProperty: (metadata?: {
     description?: string;
     required?: boolean;
     type?: any;
     isArray?: boolean;
     default?: any;
-    enum?: string[] | number[] | (string | number)[];
+    enum?: any;
     format?: string;
-    multipleOf?: number;
+    example?: any;
     maximum?: number;
-    exclusiveMaximum?: number;
+    exclusiveMaximum?: boolean;
     minimum?: number;
     exclusiveMinimum?: number;
     maxLength?: number;
@@ -18,24 +17,18 @@ export declare const ApiModelProperty: (
     maxItems?: number;
     minItems?: number;
     uniqueItems?: boolean;
-    maxProperties?: number;
-    minProperties?: number;
-    readOnly?: boolean;
-    xml?: any;
-    example?: any;
-  }
-) => PropertyDecorator;
-export declare const ApiModelPropertyOptional: (
-  metadata?: {
+    multipleOf?: number;
+}) => PropertyDecorator;
+export declare const ApiModelPropertyOptional: (metadata?: {
     description?: string;
     type?: any;
     isArray?: boolean;
     default?: any;
-    enum?: string[] | number[] | (string | number)[];
+    enum?: any;
     format?: string;
-    multipleOf?: number;
+    example?: any;
     maximum?: number;
-    exclusiveMaximum?: number;
+    exclusiveMaximum?: boolean;
     minimum?: number;
     exclusiveMinimum?: number;
     maxLength?: number;
@@ -44,10 +37,5 @@ export declare const ApiModelPropertyOptional: (
     maxItems?: number;
     minItems?: number;
     uniqueItems?: boolean;
-    maxProperties?: number;
-    minProperties?: number;
-    readOnly?: boolean;
-    xml?: any;
-    example?: any;
-  }
-) => PropertyDecorator;
+    multipleOf?: number;
+}) => PropertyDecorator;
