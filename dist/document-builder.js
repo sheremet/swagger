@@ -34,7 +34,9 @@ class DocumentBuilder {
         return this;
     }
     setBasePath(basePath) {
-        this.document.basePath = basePath.startsWith('/') ? basePath : '/' + basePath;
+        this.document.basePath = basePath.startsWith('/')
+            ? basePath
+            : '/' + basePath;
         return this;
     }
     setExternalDoc(description, url) {
@@ -51,19 +53,27 @@ class DocumentBuilder {
     }
     addBearerAuth(name = 'Authorization', location = 'header', type = 'apiKey') {
         this.document.securityDefinitions.bearer = {
-            type, name, in: location,
+            type,
+            name,
+            in: location
         };
         return this;
     }
     addOAuth2(flow = 'password', authorizationUrl, tokenUrl, scopes) {
         this.document.securityDefinitions.oauth2 = {
-            type: 'oauth2', flow, authorizationUrl, tokenUrl, scopes,
+            type: 'oauth2',
+            flow,
+            authorizationUrl,
+            tokenUrl,
+            scopes
         };
         return this;
     }
     addSecurity(securityPropName, name, location = 'header', type = 'apiKey') {
         this.document.securityDefinitions[securityPropName] = {
-            type, name, in: location,
+            type,
+            name,
+            in: location
         };
         return this;
     }

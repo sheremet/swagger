@@ -2,7 +2,8 @@ import { DECORATORS } from '../constants';
 import { createPropertyDecorator } from './helpers';
 import { pickBy, isNil, negate, isUndefined } from 'lodash';
 
-export const ApiModelProperty = (metadata: {
+export const ApiModelProperty = (
+  metadata: {
     description?: string;
     required?: boolean;
     type?: any;
@@ -22,11 +23,13 @@ export const ApiModelProperty = (metadata: {
     minItems?: number;
     uniqueItems?: boolean;
     multipleOf?: number;
-} = {}): PropertyDecorator => {
-    return createPropertyDecorator(DECORATORS.API_MODEL_PROPERTIES, metadata);
+  } = {}
+): PropertyDecorator => {
+  return createPropertyDecorator(DECORATORS.API_MODEL_PROPERTIES, metadata);
 };
 
-export const ApiModelPropertyOptional = (metadata: {
+export const ApiModelPropertyOptional = (
+  metadata: {
     description?: string;
     type?: any;
     isArray?: boolean;
@@ -45,7 +48,9 @@ export const ApiModelPropertyOptional = (metadata: {
     minItems?: number;
     uniqueItems?: boolean;
     multipleOf?: number;
-} = {}): PropertyDecorator => ApiModelProperty({
+  } = {}
+): PropertyDecorator =>
+  ApiModelProperty({
     ...metadata,
-    required: false,
-});
+    required: false
+  });

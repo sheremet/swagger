@@ -12,7 +12,7 @@ class SwaggerTransformer {
             });
         });
         return {
-            paths,
+            paths
         };
     }
 }

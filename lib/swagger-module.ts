@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import {
   SwaggerBaseConfig,
   SwaggerDocument,
-  SwaggerCustomOptions,
+  SwaggerCustomOptions
 } from './interfaces';
 import { SwaggerScanner } from './swagger-scanner';
 
@@ -12,13 +12,13 @@ export class SwaggerModule {
 
   public static createDocument(
     app: INestApplication,
-    config: SwaggerBaseConfig,
+    config: SwaggerBaseConfig
   ): SwaggerDocument {
     const document = this.swaggerScanner.scanApplication(app);
     return {
       ...config,
       ...document,
-      swagger: '2.0',
+      swagger: '2.0'
     };
   }
 
@@ -26,7 +26,7 @@ export class SwaggerModule {
     path: string,
     app: INestApplication,
     document: SwaggerDocument,
-    options?: SwaggerCustomOptions,
+    options?: SwaggerCustomOptions
   ) {
     app.use(path, swaggerUi.serve, swaggerUi.setup(document, options));
   }

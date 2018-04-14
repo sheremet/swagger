@@ -1,4 +1,5 @@
-export declare const ApiModelProperty: (metadata?: {
+export declare const ApiModelProperty: (
+  metadata?: {
     description?: string;
     required?: boolean;
     type?: any;
@@ -18,8 +19,10 @@ export declare const ApiModelProperty: (metadata?: {
     minItems?: number;
     uniqueItems?: boolean;
     multipleOf?: number;
-}) => PropertyDecorator;
-export declare const ApiModelPropertyOptional: (metadata?: {
+  }
+) => PropertyDecorator;
+export declare const ApiModelPropertyOptional: (
+  metadata?: {
     description?: string;
     type?: any;
     isArray?: boolean;
@@ -38,4 +41,5 @@ export declare const ApiModelPropertyOptional: (metadata?: {
     minItems?: number;
     uniqueItems?: boolean;
     multipleOf?: number;
-}) => PropertyDecorator;
+  }
+) => PropertyDecorator;

@@ -7,7 +7,7 @@ import {
   mapValues,
   omit,
   reduce,
-  extend,
+  extend
 } from 'lodash';
 import { SwaggerTransformer } from './swagger-transformer';
 
@@ -20,17 +20,17 @@ export class SwaggerScanner {
     const modules = container.getModules();
 
     const denormalizedPaths = [...modules.values()].map(({ routes }) =>
-      this.scanModuleRoutes(routes),
+      this.scanModuleRoutes(routes)
     );
     return {
       ...this.transfomer.normalizePaths(flatten(denormalizedPaths)),
-      definitions: reduce(this.explorer.getModelsDefinitons(), extend),
+      definitions: reduce(this.explorer.getModelsDefinitons(), extend)
     };
   }
 
   public scanModuleRoutes(routes): SwaggerDocument {
     const denormalizedArray = [...routes.values()].map(ctrl =>
-      this.explorer.exploreController(ctrl),
+      this.explorer.exploreController(ctrl)
     );
     return flatten(denormalizedArray) as any;
   }

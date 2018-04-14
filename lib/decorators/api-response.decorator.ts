@@ -5,7 +5,7 @@ const initialMetadata = {
   status: 0,
   type: String,
   isArray: false,
-  examples: '',
+  examples: ''
 };
 
 export const ApiResponse = (metadata: {
@@ -25,9 +25,9 @@ export const ApiResponse = (metadata: {
         DECORATORS.API_RESPONSE,
         {
           ...responses,
-          ...groupedMetadata,
+          ...groupedMetadata
         },
-        descriptor.value,
+        descriptor.value
       );
       return descriptor;
     }
@@ -37,9 +37,9 @@ export const ApiResponse = (metadata: {
       DECORATORS.API_RESPONSE,
       {
         ...responses,
-        ...groupedMetadata,
+        ...groupedMetadata
       },
-      target,
+      target
     );
     return target;
   };

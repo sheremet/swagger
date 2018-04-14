@@ -9,12 +9,12 @@ export class SwaggerTransformer {
       return mapValues(keyByMethod, (route: any) => {
         return {
           ...omit(route.root, ['method', 'path']),
-          ...omit(route, 'root'),
+          ...omit(route, 'root')
         };
       });
     });
     return {
-      paths,
+      paths
     };
   }
 }

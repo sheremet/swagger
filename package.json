@@ -5,7 +5,7 @@
     "Nest - modern, fast, powerful node.js web framework (@swagger)",
   "author": "Kamil Mysliwiec",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "lib/index.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "precommit": "lint-staged",

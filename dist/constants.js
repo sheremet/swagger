@@ -12,5 +12,5 @@ exports.DECORATORS = {
     API_MODEL_PROPERTIES_ARRAY: `${exports.DECORATORS_PREFIX}/apiModelPropertiesArray`,
     API_BEARER: `${exports.DECORATORS_PREFIX}/apiBearer`,
     API_OAUTH2: `${exports.DECORATORS_PREFIX}/apiOauth2`,
-    API_SECURITY: `${exports.DECORATORS_PREFIX}/apiSecurity`,
+    API_SECURITY: `${exports.DECORATORS_PREFIX}/apiSecurity`
 };

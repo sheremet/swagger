@@ -1,9 +1,9 @@
 import {
   SwaggerBaseConfig,
-  SwaggerScheme,
+  SwaggerScheme
 } from './interfaces/swagger-base-config.interface';
 
-import {documentBase} from './fixtures/document.base';
+import { documentBase } from './fixtures/document.base';
 
 export class DocumentBuilder {
   private readonly document: SwaggerBaseConfig = documentBase;
@@ -29,12 +29,12 @@ export class DocumentBuilder {
   }
 
   public setContactEmail(email: string): this {
-    this.document.info.contact = {email};
+    this.document.info.contact = { email };
     return this;
   }
 
   public setLicense(name: string, url: string): this {
-    this.document.info.license = {name, url};
+    this.document.info.license = { name, url };
     return this;
   }
 
@@ -44,12 +44,14 @@ export class DocumentBuilder {
   }
 
   public setBasePath(basePath: string): this {
-    this.document.basePath = basePath.startsWith('/') ? basePath : '/' + basePath;
+    this.document.basePath = basePath.startsWith('/')
+      ? basePath
+      : '/' + basePath;
     return this;
   }
 
   public setExternalDoc(description: string, url: string): this {
-    this.document.externalDocs = {description, url};
+    this.document.externalDocs = { description, url };
     return this;
   }
 
@@ -59,29 +61,35 @@ export class DocumentBuilder {
   }
 
   public addTag(name: string, description: string = ''): this {
-    this.document.tags = this.document.tags.concat({name, description});
+    this.document.tags = this.document.tags.concat({ name, description });
     return this;
   }
 
   public addBearerAuth(
     name: string = 'Authorization',
-    location: ('header' | 'body' | 'query') = 'header',
-    type: string = 'apiKey',
+    location: 'header' | 'body' | 'query' = 'header',
+    type: string = 'apiKey'
   ): this {
     this.document.securityDefinitions.bearer = {
-      type, name, in: location,
+      type,
+      name,
+      in: location
     };
     return this;
   }
 
   public addOAuth2(
-    flow: ('implicit' | 'password' | 'application' | 'accessCode') = 'password',
+    flow: 'implicit' | 'password' | 'application' | 'accessCode' = 'password',
     authorizationUrl?: string,
     tokenUrl?: string,
-    scopes?: object,
+    scopes?: object
   ): this {
     this.document.securityDefinitions.oauth2 = {
-      type: 'oauth2', flow, authorizationUrl, tokenUrl, scopes,
+      type: 'oauth2',
+      flow,
+      authorizationUrl,
+      tokenUrl,
+      scopes
     };
     return this;
   }
@@ -89,11 +97,13 @@ export class DocumentBuilder {
   public addSecurity(
     securityPropName: string,
     name: string,
-    location: ('header' | 'body' | 'query') = 'header',
-    type: string = 'apiKey',
+    location: 'header' | 'body' | 'query' = 'header',
+    type: string = 'apiKey'
   ): this {
     this.document.securityDefinitions[securityPropName] = {
-      type, name, in: location,
+      type,
+      name,
+      in: location
     };
     return this;
   }

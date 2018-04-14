@@ -6,7 +6,7 @@ const initialMetadata = {
     status: 0,
     type: String,
     isArray: false,
-    examples: '',
+    examples: ''
 };
 exports.ApiResponse = (metadata) => {
     metadata.description = metadata.description ? metadata.description : '';

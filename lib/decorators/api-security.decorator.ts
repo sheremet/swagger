@@ -1,5 +1,5 @@
-import {DECORATORS} from '../constants';
-import {createMixedDecorator} from './helpers';
+import { DECORATORS } from '../constants';
+import { createMixedDecorator } from './helpers';
 
 export interface IApiSecurityProperties {
   securityPropName: string;
@@ -8,7 +8,9 @@ export interface IApiSecurityProperties {
   in: 'body' | 'query' | 'header';
 }
 
-export const ApiSecurity = (metadata: IApiSecurityProperties | IApiSecurityProperties[]) => {
+export const ApiSecurity = (
+  metadata: IApiSecurityProperties | IApiSecurityProperties[]
+) => {
   if (Array.isArray(metadata)) {
     return createMixedDecorator(DECORATORS.API_SECURITY, metadata);
   } else {
