@@ -9,7 +9,7 @@ const api_use_tags_explorer_1 = require("./explorers/api-use-tags.explorer");
 const lodash_1 = require("lodash");
 const shared_utils_1 = require("@nestjs/common/utils/shared.utils");
 const metadata_scanner_1 = require("@nestjs/core/metadata-scanner");
-const common_1 = require("@nestjs/common");
+const enums_1 = require("@nestjs/common/enums");
 const api_operation_explorer_1 = require("./explorers/api-operation.explorer");
 const api_parameters_explorer_1 = require("./explorers/api-parameters.explorer");
 class SwaggerExplorer {
@@ -83,7 +83,7 @@ class SwaggerExplorer {
         const requestMethod = Reflect.getMetadata(constants_1.METHOD_METADATA, method);
         const fullPath = globalPath + this.validateRoutePath(routePath);
         return {
-            method: common_1.RequestMethod[requestMethod].toLowerCase(),
+            method: enums_1.RequestMethod[requestMethod].toLowerCase(),
             path: fullPath === '' ? '/' : fullPath,
         };
     }

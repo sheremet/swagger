@@ -15,3 +15,4 @@ __export(require("./api-implicit-query.decorator"));
 __export(require("./api-model-property.decorator"));
 __export(require("./api-use-tags.decorator"));
 __export(require("./api-oauth2.decorator"));
+__export(require("./api-security.decorator"));
