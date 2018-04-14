@@ -1,3 +1,17 @@
+export interface IBearer {
+  type: string;
+  name: string;
+  in: 'body' | 'query' | 'header';
+}
+
+export interface IOauth2 {
+  type: 'oauth2';
+  flow: 'implicit' | 'password' | 'application' | 'accessCode';
+  authorizationUrl?: string;
+  tokenUrl?: string;
+  scopes?: object;
+}
+
 export interface SwaggerBaseConfig {
   swagger?: string;
   info?: {
@@ -25,18 +39,7 @@ export interface SwaggerBaseConfig {
   };
   schemes?: SwaggerScheme[];
   securityDefinitions?: {
-    bearer?: {
-      type: string;
-      name: string;
-      in: 'body' | 'query' | 'header';
-    };
-    oauth2?: {
-      type: 'oauth2';
-      flow: 'implicit' | 'password' | 'application' | 'accessCode';
-      authorizationUrl?: string;
-      tokenUrl?: string;
-      scopes?: object;
-    };
+    [name: string]: IBearer | IOauth2;
   };
 }
 
