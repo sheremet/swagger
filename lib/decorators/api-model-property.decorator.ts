@@ -1,19 +1,18 @@
 import { DECORATORS } from '../constants';
-import { createMethodDecorator, createPropertyDecorator } from './helpers';
+import { createPropertyDecorator } from './helpers';
 import { pickBy, isNil, negate, isUndefined } from 'lodash';
 
-export const ApiModelProperty = (
-  metadata: {
+export const ApiModelProperty = (metadata: {
     description?: string;
     required?: boolean;
     type?: any;
     isArray?: boolean;
     default?: any;
-    enum?: string[] | number[] | (string | number)[];
+    enum?: any;
     format?: string;
-    multipleOf?: number;
+    example?: any;
     maximum?: number;
-    exclusiveMaximum?: number;
+    exclusiveMaximum?: boolean;
     minimum?: number;
     exclusiveMinimum?: number;
     maxLength?: number;
@@ -22,27 +21,21 @@ export const ApiModelProperty = (
     maxItems?: number;
     minItems?: number;
     uniqueItems?: boolean;
-    maxProperties?: number;
-    minProperties?: number;
-    readOnly?: boolean;
-    xml?: any;
-    example?: any;
-  } = {}
-): PropertyDecorator => {
-  return createPropertyDecorator(DECORATORS.API_MODEL_PROPERTIES, metadata);
+    multipleOf?: number;
+} = {}): PropertyDecorator => {
+    return createPropertyDecorator(DECORATORS.API_MODEL_PROPERTIES, metadata);
 };
 
-export const ApiModelPropertyOptional = (
-  metadata: {
+export const ApiModelPropertyOptional = (metadata: {
     description?: string;
     type?: any;
     isArray?: boolean;
     default?: any;
-    enum?: string[] | number[] | (string | number)[];
+    enum?: any;
     format?: string;
-    multipleOf?: number;
+    example?: any;
     maximum?: number;
-    exclusiveMaximum?: number;
+    exclusiveMaximum?: boolean;
     minimum?: number;
     exclusiveMinimum?: number;
     maxLength?: number;
@@ -51,14 +44,8 @@ export const ApiModelPropertyOptional = (
     maxItems?: number;
     minItems?: number;
     uniqueItems?: boolean;
-    maxProperties?: number;
-    minProperties?: number;
-    readOnly?: boolean;
-    xml?: any;
-    example?: any;
-  } = {}
-): PropertyDecorator =>
-  ApiModelProperty({
+    multipleOf?: number;
+} = {}): PropertyDecorator => ApiModelProperty({
     ...metadata,
-    required: false
-  });
+    required: false,
+});

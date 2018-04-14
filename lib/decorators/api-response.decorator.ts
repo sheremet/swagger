@@ -1,11 +1,11 @@
 import { DECORATORS } from '../constants';
-import { createMethodDecorator } from './helpers';
 import { omit } from 'lodash';
 
 const initialMetadata = {
   status: 0,
   type: String,
-  isArray: false
+  isArray: false,
+  examples: '',
 };
 
 export const ApiResponse = (metadata: {
@@ -13,6 +13,7 @@ export const ApiResponse = (metadata: {
   description?: string;
   type?: any;
   isArray?: boolean;
+  examples?: any;
 }) => {
   metadata.description = metadata.description ? metadata.description : '';
   const groupedMetadata = { [metadata.status]: omit(metadata, 'status') };
@@ -24,9 +25,9 @@ export const ApiResponse = (metadata: {
         DECORATORS.API_RESPONSE,
         {
           ...responses,
-          ...groupedMetadata
+          ...groupedMetadata,
         },
-        descriptor.value
+        descriptor.value,
       );
       return descriptor;
     }
@@ -36,9 +37,9 @@ export const ApiResponse = (metadata: {
       DECORATORS.API_RESPONSE,
       {
         ...responses,
-        ...groupedMetadata
+        ...groupedMetadata,
       },
-      target
+      target,
     );
     return target;
   };
